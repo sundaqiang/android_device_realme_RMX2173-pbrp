@@ -1,5 +1,5 @@
 
-# Realme 8 5G / Narzo 30 5G
+# Realme Q2 PRO
 
 ## How to compile it:
 
