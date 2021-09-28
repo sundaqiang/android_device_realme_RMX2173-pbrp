@@ -1,24 +1,29 @@
+# android_device_realme_RMX2173
+For building TWRP for realme Q2 Pro
 
-# Realme Q2 PRO
+## Features
 
-## How to compile it:
+Works:
 
-To build:
+- ADB
+- Decryption of /data
+- Screen brightness settings
+- Vibration on touch
 
-repo
-`https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp`
+## Compile
 
-setup envirnoment
-`. build/envsetup.sh`
+First checkout minimal twrp with omnirom tree:
 
-then prepare
-`lunch twrp_RMX2173-eng`
+```
+repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+repo sync |or| repo sync  -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+```
 
-make the image
-`m recoveryimage`
+Finally execute these:
 
-## How to find the image built
-
-`cd $OUT`
-
-see `recovery.img`
+```
+export ALLOW_MISSING_DEPENDENCIES=true
+. build/envsetup.sh
+lunch omni_RMX2173-eng
+mka -j$(nproc --all) recoveryimage
+```
