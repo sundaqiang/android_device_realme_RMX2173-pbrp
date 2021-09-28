@@ -5,6 +5,9 @@
 
 To build:
 
+repo
+`https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp`
+
 setup envirnoment
 `. build/envsetup.sh`
 
