@@ -29,7 +29,7 @@ Finally execute these:
 ```
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch omni_RMX2173-eng
+lunch twrp_RMX2173-eng
 mka -j$(nproc --all) recoveryimage
 
 |or|

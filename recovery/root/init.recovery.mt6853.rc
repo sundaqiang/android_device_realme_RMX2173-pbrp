@@ -6,7 +6,6 @@ on init
 
 on fs
     install_keyring
-
     write /sys/class/power_supply/usb/otg_switch 1
     write /sys/class/oplus_chg/usb/otg_switch 1
 
@@ -72,6 +71,12 @@ on property:twrp.decrypt.done=true
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    chmod 755 /system/sbin/magiskboot
+    rm /sdcard/magisk
+    mkdir /sdcard/magisk
+    symlink /system/magisk/InstallMagisk.zip /sdcard/magisk/InstallMagisk.zip
+    symlink /system/magisk/no_replace_twrp_avb2.zip /sdcard/magisk/no_replace_twrp_avb2.zip
+    symlink /system/magisk/uninstall.zip /sdcard/magisk/uninstall.zip
 
 on post-fs-data
     mkdir /data/vendor_de 0770 system system
