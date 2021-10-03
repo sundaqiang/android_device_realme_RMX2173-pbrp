@@ -71,7 +71,7 @@ on property:twrp.decrypt.done=true
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    chmod 755 /system/sbin/magiskboot
+    chmod 755 /sbin/magiskboot
     rm /sdcard/magisk
     mkdir /sdcard/magisk
     symlink /system/magisk/InstallMagisk.zip /sdcard/magisk/InstallMagisk.zip
