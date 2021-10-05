@@ -1,5 +1,5 @@
-# android_device_realme_RMX2173
-For building TWRP for realme Q2 Pro
+# android_device_realme_RMX2173-pbrp
+For building PBRP for realme Q2 Pro
 
 ## Features
 
@@ -12,10 +12,10 @@ Works:
 
 ## Compile
 
-First checkout minimal twrp with omnirom tree:
+First checkout minimal pbrp with omnirom tree:
 
 ```
-repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+repo init --depth=1 -u git://github.com/PitchBlackRecoveryProject/manifest_pb -b android-11.0
 
 repo sync
 
@@ -29,10 +29,10 @@ Finally execute these:
 ```
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch twrp_RMX2173-eng
+lunch omni_RMX2173-eng
 mka -j$(nproc --all) recoveryimage
 
 |or|
 
-export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch twrp_RMX2173-eng; mka -j$(nproc --all) recoveryimage
+export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_RMX2173-eng; mka -j$(nproc --all) recoveryimage
 ```
