@@ -12,3 +12,4 @@ ro.sys.usb.storage.type=mtp
 ro.vendor.mtk_trustonic_tee_support=1
 ro.separate.soft=20633
 ro.product.device=RMX2175CN
+
