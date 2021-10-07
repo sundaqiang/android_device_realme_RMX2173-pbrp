@@ -7,7 +7,7 @@ on:
     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 env:
-  MANIFEST: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
+  MANIFEST: git://github.com/PitchBlackRecoveryProject/manifest_pb
   MANIFEST_BRANCH: android-11.0
   DEVICE: RMX2173
   DT_REPO: https://github.com/sundaqiang/android_device_realme_RMX2173-pbrp
@@ -36,8 +36,8 @@ jobs:
             
        - name: Sync recovery and device tree sources
          run: |
-             repo init -u $MANIFEST -b $MANIFEST_BRANCH --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
-             repo sync -j$(nproc --all)
+             repo init --depth=1 -u $MANIFEST -b $MANIFEST_BRANCH
+             repo sync -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
              git clone $DT_REPO --depth=1 $DT_PATH
              
        - name: Build
