@@ -43,7 +43,7 @@ jobs:
        - name: Build
          run: |
               . build/envsetup.sh
-              lunch twrp_$DEVICE-eng || true
+              lunch omni_$DEVICE-eng || true
               export ALLOW_MISSING_DEPENDENCIES=true && mka pbrp
               
        - name: Create Release
