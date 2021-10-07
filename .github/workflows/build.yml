@@ -1,4 +1,4 @@
-name: Building TWRP
+name: Building PBRP
 
 on:
   push:
