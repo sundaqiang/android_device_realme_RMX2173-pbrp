@@ -59,7 +59,10 @@ jobs:
              - PBRP bringup!
            draft: false
            prerelease: false
-       - uses: xresloader/upload-to-github-release@master
+           
+       - name: Upload Release Asset
+         id: upload-release-asset 
+         uses: xresloader/upload-to-github-release@master
          env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          with:
