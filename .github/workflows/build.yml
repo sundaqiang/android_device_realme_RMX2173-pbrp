@@ -1,7 +1,11 @@
 name: Building PBRP
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      TagDetail:
+        name:''
+        body:''
 
 env:
   TARGET: pbrp
@@ -26,11 +30,9 @@ jobs:
          env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          with:
-           tag_name: ${{ github.ref }}
-           release_name: Release ${{ github.ref }}
-           body: |
-             Changes in this Release
-             - PBRP bringup!
+           tag_name: ${{ github.event.inputs.TagDetail.name }}
+           release_name: Release ${{ github.event.inputs.TagDetail.name }}
+           body: ${{ github.event.inputs.TagDetail.body }}
            draft: false
            prerelease: false
            
