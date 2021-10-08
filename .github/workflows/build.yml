@@ -14,7 +14,7 @@ on:
 
 env:
   TARGET: pbrp
-  MANIFEST: git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b twrp-11
+  MANIFEST: git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b ${GITHUB_REF##*/}
 
 jobs:
   build:
