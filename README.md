@@ -30,9 +30,9 @@ Finally execute these:
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
 lunch omni_RMX2173-eng
-mka -j$(nproc --all) recoveryimage
+mka -j$(nproc --all) pbrp
 
 |or|
 
-export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_RMX2173-eng; mka -j$(nproc --all) recoveryimage
+export ALLOW_MISSING_DEPENDENCIES=true; source build/envsetup.sh; lunch omni_RMX2173-eng; mka -j$(nproc --all) pbrp
 ```
