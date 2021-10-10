@@ -15,7 +15,7 @@ Works:
 First checkout minimal pbrp with omnirom tree:
 
 ```
-repo init --depth=1 -u git://github.com/PitchBlackRecoveryProject/manifest_pb -b android-11.0
+repo init --depth=1 -u git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-11.0
 
 repo sync
 
