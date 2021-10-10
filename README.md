@@ -15,13 +15,13 @@ Works:
 First checkout minimal pbrp with omnirom tree:
 
 ```
-repo init --depth=1 -u git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-11.0
+repo init --depth=1 -u git://github.com/PitchBlackRecoveryProject/manifest_pb.git -b android-11.0 --groups=all,-notdefault,-device,-darwin,-x86,-mips
 
 repo sync
 
 |or|
 
-repo sync -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
+repo sync --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
 ```
 
 Finally execute these:
