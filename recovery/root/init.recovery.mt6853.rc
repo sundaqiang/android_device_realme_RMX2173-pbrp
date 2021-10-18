@@ -3,6 +3,7 @@ import /trustonic.rc
 
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
+    chmod 0777 /system/bin/modelchange.sh
 
 on fs
     install_keyring
@@ -42,11 +43,18 @@ service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
+service modelchange /system/bin/modelchange.sh
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on property:hwservicemanager.ready=true
     start mobicore
     start hal_cryptoeng_oppo
     start keymaster-4-0
     start gatekeeper-1-0
+    start modelchange
 
 on property:ro.crypto.state=unsupported
     stop mobicore
@@ -55,6 +63,7 @@ on property:ro.crypto.state=unsupported
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    stop modelchange
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
@@ -63,6 +72,7 @@ on property:ro.crypto.state=unencrypted
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    stop modelchange
 
 on property:twrp.decrypt.done=true
     stop mobicore
@@ -71,6 +81,12 @@ on property:twrp.decrypt.done=true
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
+    stop modelchange
+
+on property:sys.usb.config=fastboot
+    start servicemanager
+    start hwservicemanager
+    restart fastbootd
 
 on post-fs-data
     mkdir /data/vendor_de 0770 system system
