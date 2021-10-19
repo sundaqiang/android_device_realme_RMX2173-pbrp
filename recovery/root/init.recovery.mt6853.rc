@@ -54,7 +54,6 @@ on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start keymaster-4-0
     start gatekeeper-1-0
-    start modelchange
 
 on property:ro.crypto.state=unsupported
     stop mobicore
@@ -63,7 +62,6 @@ on property:ro.crypto.state=unsupported
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    stop modelchange
 
 on property:ro.crypto.state=unencrypted
     stop mobicore
@@ -72,7 +70,6 @@ on property:ro.crypto.state=unencrypted
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    stop modelchange
 
 on property:twrp.decrypt.done=true
     stop mobicore
@@ -81,7 +78,6 @@ on property:twrp.decrypt.done=true
     stop gatekeeper-1-0
     stop servicemanager
     stop hwservicemanager
-    stop modelchange
 
 on property:sys.usb.config=fastboot
     start servicemanager
@@ -92,3 +88,4 @@ on post-fs-data
     mkdir /data/vendor_de 0770 system system
     mkdir /data/vendor_de/0 0770 system system
     mkdir /data/vendor_de/0/cryptoeng 0770 system system
+    start modelchange
